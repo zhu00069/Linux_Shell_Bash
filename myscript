@@ -1,0 +1,80 @@
+# Assignment: Lab9
+# Student name : Bo Zhu
+# Student # : 040-684-747
+# Section # :320
+# Name of script : myscript
+# Date : April 9,2017
+# Description : use script to manage user and group information
+echo ""
+echo "A) Create a user account"
+echo "B) Delete a user account"
+echo "C) Change supplementary group for a user account"
+echo "D) Change initial group for a user account"
+echo "E) Change the default login in shell for a user account"
+echo "F) Change the account experiation date"
+echo "Q) Quit"
+echo ""
+read -p "Please choose an option: " option
+
+while [ $option != "Q" ]&&[ $option != "q" ]
+do 
+	if [ $option = "A" ] || [ $option = "a" ]
+	then 
+		read -p "Please input a username: " userName
+		read -p "Please input User's home directory: " homeDirectory
+		read -p "Please input default login shell: " defaultShell
+		useradd $userName -d $homeDirectory -m -s $defaultShell
+		echo "$userName was created."
+		sleep 3
+		
+	elif [ $option = "B" ] || [ $option = "b" ]
+	then
+		read -p "SPecify username that you want to be deleted: " userName
+		userdel -r $userName
+		echo "$userName was delete."
+		sleep 3
+	
+	elif [ $option = "C" ] || [ $option = "c" ]
+	then
+		read -p "Specify a username: " userName
+		read -p "Specify a supplementary group: " group
+		usermod -G $group $userName
+		echo "$userName was add to group ' $group' as supplementary."
+		sleep 3
+		
+	elif [ $option = "D" ] || [ $option = "d" ]
+	then
+		read -p "Specify a username: " userName
+		read -p "Specify initial group: " group
+		usermod -g $group $userName
+		echo "The initial group of $userName was changed to $group. "
+		sleep 3
+		
+	elif [ $option = "E" ] || [ $option = "e" ]
+	then
+		read -p "Specify a username: " userName
+		read -p "Specify a default shell: " shell
+		usermod -s $shell $userName 
+		echo "The shell of $userName was changed to $shell."
+		sleep 3
+	
+	elif [ $option = "F" ] || [ $option = "f" ]
+	then
+		read -p "Specify a username: " userName
+		read -p "Specify expire date(YYYY-MM-DD): " date
+		usermod -e $date $userName 
+		echo "The expiration date of $userName was changed to $date."
+		sleep 3
+	fi
+
+        echo "**************************************************"
+	echo "Welcome to use this script, you can manage user and group information here"
+	echo "A) Create a user account"
+	echo "B) Delete a user account"
+	echo "C) Change supplementary group for a user account"
+	echo "D) Change initial group for a user account"
+	echo "E) Change the default login shell for a user account"
+	echo "F) Change the account expiration date"
+	echo "Q) Quit"
+	read -p "Please choose an option: " option
+done
