@@ -1,0 +1,69 @@
+#!/bin/bash
+#This program is used to calculate the grade
+#Student Name : Bo Zhu
+
+read -p "Enter assignment mark (0 to 40) :  " assign
+read -p "Enter Test1 mark (0 to 15) : " t1
+read -p "Enter Test2 mark (1 to 15) : " t2
+read -p "Enter Final Exam mark (1 to 30) : " final
+echo ""
+echo ""
+
+grade=$[assign+t1+t2+final]
+
+if([ $grade -ge 90 ]&&[ $grade -le 100 ]);
+then 
+	echo "Your final grade is A+"
+	echo ""
+elif([ $grade -ge 85 ]&&[ $grade -le 89 ]);
+then 
+	echo "Your final grade is A"
+	echo ""
+elif([ $grade -ge 80 ]&&[ $grade -le 84 ]);
+then 
+	echo "Your final grade is A-"
+	echo ""
+elif ([ $grade -ge 77 ]&&[ $grade -le 79 ]);
+then 
+	echo "Your final grade is B+"
+	echo ""
+elif ([ $grade -ge 73 ]&&[ $grade -le 76 ]);
+then
+	echo "Your final grade is B"
+	echo ""
+elif ([ $grade -ge 70 ]&&[ $grade -le 72 ]);
+then 
+	echo "Your final grade is B-"
+	echo ""
+elif ([ $grade -ge 67 ]&&[ $grade -le 69 ]);
+then 
+	echo "Your final grade is C+"
+	echo ""
+elif ([ $grade -ge 63 ]&&[ $grade -le 66 ]);
+then
+	echo "Your final grade is C"
+	echo ""
+elif ([ $grade -ge 60 ]&&[ $grade -le 62]);
+then
+	echo "Your final grade is C-"
+	echo ""
+elif ([ $grade -ge 57 ]&&[ $grade -le 59 ]);
+then 
+	echo "Your final grade is D+"
+	echo ""
+elif ([ $grade -ge 53 ]&&[ $grade -le 56 ]);
+then 
+	echo "Your final grade is D"
+	echo ""
+elif ([ $grade -ge 50 ]&&[ $grade -le 52 ]);
+then
+	echo "Your final grade is D-"
+	echo ""
+elif ([ $grade -ge 0 ]&&[ $grade -le 49 ]);
+then
+	echo "Your final grade is F"
+	echo ""
+else
+        echo "end"
+
+fi
